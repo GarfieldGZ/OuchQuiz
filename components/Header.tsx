@@ -28,7 +28,7 @@ const Header = () => {
             href='/'
             className='flex justify-center items-center group'
           >
-            <div className='pl-4 group-hover:sm:bg-white z-10'>
+            <div className='xs:pl-4 xxs:pl-2 pl-0  group-hover:sm:bg-white z-10'>
               <Image src='/cat.svg' alt='logo' width={40} height={40} />
             </div>
             <span className='hidden sm:flex absolute font-mono font-bold left-[-100%] transition-transform duration-200 group-hover:translate-x-14 group-hover:left-10 text-2xl font-mono-bold ml-3'>
@@ -42,12 +42,12 @@ const Header = () => {
           <div>
             <CustomButton
               title='Login'
-              containerStyles='px-4 py-2 text-base font-mono font-bold text-black rounded-full hover:text-red-500'
+              containerStyles='sm:px-4 tracking-tight xs:tracking-normal px-1 xxs:px-2 py-2 text-base font-mono font-bold text-black rounded-full hover:text-red-500'
               handleClick={Login}
             />
             <CustomButton
               title='Sign up'
-              containerStyles='px-4 mr-2 sm:mr-0  py-2 shadow-md text-base font-mono font-bold bg-white text-black rounded-full border-2 border-black hover:bg-black hover:text-white transition-all duration-300 delay-100'
+              containerStyles='sm:px-4 xxs:px-2 px-2 xs:tracking-normal xxs:tracking-tight tracking-tighter  mr-0 sm:mr-2  py-2 shadow-md text-base font-mono font-bold bg-white text-black rounded-full border-2 border-black hover:bg-black hover:text-white transition-all duration-300 delay-100'
               handleClick={SignUp}
             />
           </div>

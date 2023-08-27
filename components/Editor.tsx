@@ -49,8 +49,11 @@ const TextEditor = () => {
         <div className='absolute ml-4 sm:ml-6 lg:ml-10 mb hidden sm:flex'>
           {editor.storage.characterCount.characters()}/{limit} characters
         </div>
-        <div className='absolute ml-4 sm:ml-6 lg:ml-10 mb flex sm:hidden'>
+        <div className='absolute ml-4 sm:ml-6 lg:ml-10 mb hidden xs:flex'>
           {editor.storage.characterCount.characters()}/{limit} char
+        </div>
+        <div className='absolute ml-4 sm:ml-6 lg:ml-10 mb flex xs:hidden'>
+          {editor.storage.characterCount.characters()}/{limit}
         </div>
         <CustomButton
           title='Generate Quiz'
