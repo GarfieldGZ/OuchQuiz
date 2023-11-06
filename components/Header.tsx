@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CustomButton from './CustomButton';
 import SearchBar from './SearchBar';
+import GoogleSignIn from './GoogleSignIn';
 
 const Header = () => {
   const scrollToTop = () => {
@@ -40,16 +41,7 @@ const Header = () => {
           </Link>
           <SearchBar />
           <div>
-            <CustomButton
-              title='Login'
-              containerStyles='sm:px-4 tracking-tight xs:tracking-normal px-1 xxs:px-2 py-2 text-base font-mono font-bold text-black rounded-full hover:text-red-500'
-              handleClick={Login}
-            />
-            <CustomButton
-              title='Sign up'
-              containerStyles='sm:px-4 xxs:px-2 px-2 xs:tracking-normal xxs:tracking-tight tracking-tighter  mr-0 sm:mr-2  py-2 shadow-md text-base font-mono font-bold bg-white text-black rounded-full border-2 border-black hover:bg-black hover:text-white transition-all duration-300 delay-100'
-              handleClick={SignUp}
-            />
+            <GoogleSignIn />
           </div>
         </nav>
       </header>
