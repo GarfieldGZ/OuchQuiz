@@ -4,6 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import CharacterCount from '@tiptap/extension-character-count';
 import CustomButton from './CustomButton';
 import Placeholder from '@tiptap/extension-placeholder';
+import QuizGen from './QuizGen';
 
 const limit = 3000;
 
@@ -15,7 +16,18 @@ const TextEditor = () => {
       return null;
     }
     exportText = editor.getText();
-    console.log(exportText);
+    if (exportText === '') {
+      alert('Please insert text to generate a quiz!');
+      return;
+    }
+    console.log('input:' + exportText);
+    QuizGen(exportText)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const editor = useEditor({
     extensions: [
@@ -33,9 +45,17 @@ const TextEditor = () => {
           ' scroll-smooth max-w-none sm:prose-base sm:p-6 lg:prose-lg lg:p-10 p-4 flex-1 overflow-auto h-96 focus:outline-none',
       },
     },
-    content: `
+    content:
+      window.localStorage.getItem('editor-content') ||
+      `
     <p>Welcome to Ouch!Quiz demo! The web functions are currently under development...</p>
   `,
+    onUpdate({ editor }) {
+      window.localStorage.setItem(
+        'editor-content',
+        editor.getHTML() || editor.getText()
+      );
+    },
   });
 
   if (!editor) {
