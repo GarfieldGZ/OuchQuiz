@@ -8,6 +8,8 @@ import QuizGen from './QuizGen';
 
 const limit = 3000;
 
+const isWindowDefined = typeof window !== 'undefined';
+
 const TextEditor = () => {
   let exportText = '';
 
@@ -46,15 +48,16 @@ const TextEditor = () => {
       },
     },
     content:
-      window.localStorage.getItem('editor-content') ||
+      (isWindowDefined && window.localStorage.getItem('editor-content')) ||
       `
     <p>Welcome to Ouch!Quiz demo! The web functions are currently under development...</p>
   `,
     onUpdate({ editor }) {
-      window.localStorage.setItem(
-        'editor-content',
-        editor.getHTML() || editor.getText()
-      );
+      isWindowDefined &&
+        window.localStorage.setItem(
+          'editor-content',
+          editor.getHTML() || editor.getText()
+        );
     },
   });
 
